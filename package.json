@@ -1,0 +1,57 @@
+{
+    "private": true,
+    "scripts": {
+        "clean": "del-cli public/styles/*.css && del-cli public/scripts/*.css  && del-cli public/scripts/*.js && del-cli public/mix-manifest.json",
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "yarn clean && mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
+    "devDependencies": {
+        "deepmerge": "^4.2.2",
+        "del-cli": "^4.0.1",
+        "laravel-echo": "^1.11.0",
+        "laravel-mix": "^6.0.6",
+        "lodash": "^4.17.19",
+        "postcss": "^8.3.6",
+        "pusher-js": "^7.0.3",
+        "resolve-url-loader": "^4.0.0",
+        "sass": "^1.35.2",
+        "sass-loader": "^12.1.0",
+        "vue-loader": "^15.9.6",
+        "vue-template-compiler": "^2.6.12",
+        "worker-loader": "^3.0.8"
+    },
+    "dependencies": {
+        "@tiptap/core": "^2.0.0-beta.86",
+        "@tiptap/starter-kit": "^2.0.0-beta.82",
+        "@tiptap/vue-2": "^2.0.0-beta.39",
+        "axios": "^0.21.1",
+        "debounce": "^1.2.1",
+        "pdfjs-dist": "^2.7.570",
+        "vue": "^2.6.12",
+        "vue-router": "^3.5.1",
+        "vuetify": "^2.4.10",
+        "vuex": "^3.6.2",
+        "webfontloader": "^1.6.28"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "parserOptions": {
+            "parser": "babel-eslint"
+        },
+        "rules": {
+            "vue/experimental-script-setup-vars": 0
+        }
+    }
+}

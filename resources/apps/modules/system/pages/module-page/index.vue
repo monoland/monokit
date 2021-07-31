@@ -2,6 +2,7 @@
     <mono-page-base
         name="system-page"
         title="page"
+        nested
     >
         <mono-page-data>
             <mono-page-table>

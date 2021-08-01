@@ -159,9 +159,10 @@ const state = {
 
     theme: process.env.MIX_PAGE_THEME,
 
+    uploader: null,
+
     upload: {
-        mime: 'application/pdf',
-        max: 1024
+        http: null
     }
 }
 

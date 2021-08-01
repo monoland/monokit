@@ -75,6 +75,10 @@
     }
 }
 
+#pageContainer .page {
+    margin: 8px auto;
+}
+
 .absolute  {
     position: absolute !important;
 
@@ -145,6 +149,10 @@
 
 .font-size-11 {
     font-size: 11px;
+}
+
+.height-0 {
+    height: 0 !important;
 }
 
 .height-36px {
@@ -443,6 +451,10 @@
 .v-text-field.v-input--dense:not(.v-text-field--outlined) .v-text-field__suffix, 
 .v-text-field.v-input--dense:not(.v-text-field--outlined) input {
     padding: 0 2px;
+}
+
+.width-0 {
+    width: 0 !important;
 }
 
 .width-100 {

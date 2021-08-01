@@ -4,6 +4,20 @@
         elevation="0"
     >
         <div class="d-flex flex-column width-100 px-4">
+            <mono-file-upload
+                label="upload some file"
+                hint="some hint"
+                mime="application/pdf"
+                v-model="record.profile_avatar_path"
+            ></mono-file-upload>
+
+            <mono-file-upload
+                label="upload some file"
+                hint="some hint"
+                mime="application/pdf"
+                v-model="sample"
+            ></mono-file-upload>
+
             <v-sheet
                 class="mt-4 clip-corner"
                 width="100%"
@@ -374,7 +388,9 @@ export default {
 
         confirm_target: null,
         password: null,
-        visible: false
+        visible: false,
+
+        sample: null
     }),
 
     methods: {

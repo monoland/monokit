@@ -7,8 +7,10 @@ use App\Http\Controllers\System\UserController;
 use App\Http\Controllers\System\ModuleController;
 use App\Http\Controllers\System\AbilityController;
 use App\Http\Controllers\System\SettingController;
+use App\Http\Controllers\Account\DocumentController;
 use App\Http\Controllers\MyAccount\ProfileController;
 use App\Http\Controllers\System\PermissionController;
+use App\Http\Controllers\System\SystemBaseController;
 use App\Http\Controllers\Account\AccountBaseController;
 use Laravel\Fortify\Http\Controllers\PasswordController;
 use App\Http\Controllers\MyAccount\AnnouncementController;
@@ -63,10 +65,15 @@ Route::prefix('account/api')->group(function () {
     Route::post('announcement/{announcement}/restore', [AnnouncementController::class, 'restore']);
     Route::resource('announcement', AnnouncementController::class);
     Route::resource('notification', NotificationController::class);
+
+    Route::get('document/preview/{filename}', [DocumentController::class, 'preview']);
+    Route::resource('document', DocumentController::class);
 });
 
 
 Route::prefix('system/api')->group(function () {
+    Route::get('dashboard', [SystemBaseController::class, 'index']);
+
     Route::delete('role/{role}/destroy', [RoleController::class, 'forceDelete']);
     Route::post('role/{role}/restore', [RoleController::class, 'restore']);
     Route::resource('role', RoleController::class);

@@ -303,10 +303,27 @@ const mutations = {
                     Authorization: 'Bearer ' + state.auth.getItem('token')
                 }
             });
+
+            state.uploader = axios.create({
+                baseURL: state.baseURL,
+                withCredentials: false,
+                headers: {
+                    Authorization: 'Bearer ' + state.auth.getItem('token'),
+                    'Content-Type': 'application/octet-stream'
+                }
+            });
         } else {
             state.http = axios.create({
                 baseURL: state.baseURL,
                 withCredentials: true 
+            });
+
+            state.uploader = axios.create({
+                baseURL: state.baseURL,
+                withCredentials: true,
+                headers: {
+                    'Content-Type': 'application/octet-stream'
+                }
             });
         }
 

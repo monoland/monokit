@@ -4,20 +4,6 @@
         elevation="0"
     >
         <div class="d-flex flex-column width-100 px-4">
-            <mono-file-upload
-                label="upload some file"
-                hint="some hint"
-                mime="application/pdf"
-                v-model="record.profile_avatar_path"
-            ></mono-file-upload>
-
-            <mono-file-upload
-                label="upload some file"
-                hint="some hint"
-                mime="application/pdf"
-                v-model="sample"
-            ></mono-file-upload>
-
             <v-sheet
                 class="mt-4 clip-corner"
                 width="100%"
@@ -258,24 +244,6 @@
                     <v-btn :color="theme" :disabled="! has_devices" text @click="confirm_target='device'; dialog_password = true;">logout other device</v-btn>
                 </v-card-actions>
             </v-sheet>
-
-            <v-sheet
-                class="my-4 clip-corner"
-                width="100%"
-            >
-                <v-toolbar :color="`${theme} lighten-4`" dense flat>
-                    <v-toolbar-title :class="`${theme}--text`" class="overline">logout</v-toolbar-title>
-                </v-toolbar>
-                
-                <v-card-text class="text-center">
-                    <v-btn 
-                        dark
-                        depressed 
-                        color="error" 
-                        @click="dialog_logout = true"
-                    >logout current device</v-btn>
-                </v-card-text>
-            </v-sheet>
         </div>
 
         <v-dialog
@@ -389,8 +357,6 @@ export default {
         confirm_target: null,
         password: null,
         visible: false,
-
-        sample: null
     }),
 
     methods: {

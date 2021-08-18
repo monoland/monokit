@@ -37,8 +37,8 @@ class SystemDataSeeder extends Seeder
     protected function default_product_logo()
     {
         return env('APP_ENV') === 'local' ?
-            env('MIX_DEV_PROTOCOL') . '://' . env('MIX_DEV_DOMAIN') . '/asset/product_logo' :
-            env('MIX_PRD_PROTOCOL') . '://' . env('MIX_PRD_DOMAIN') . '/asset/product_logo';
+            env('MIX_DEV_PROTOCOL') . '://' . env('MIX_DEV_DOMAIN') . '/asset/product_logo.svg' :
+            env('MIX_PRD_PROTOCOL') . '://' . env('MIX_PRD_DOMAIN') . '/asset/product_logo.svg';
     }
 
     /**
@@ -65,7 +65,7 @@ class SystemDataSeeder extends Seeder
      */
     protected function default_text_color()
     {
-        return 'white--text';
+        return 'light-blue--text text--darken-3';
     }
 
     /**

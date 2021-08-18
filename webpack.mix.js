@@ -12,11 +12,13 @@ mix.webpackConfig({
     }
 });
 
-mix.js('resources/apps/monoland.js', 'public/scripts')
+mix.setPublicPath('frontend/');
+
+mix.js('resources/apps/monoland.js', 'scripts')
     .vue()
     .sourceMaps()
-    .css('node_modules/vuetify/dist/vuetify.min.css', 'public/styles')
-    .sass('resources/styles/monoland.scss', 'public/styles')
+    .css('node_modules/vuetify/dist/vuetify.min.css', 'styles')
+    .sass('resources/styles/monoland.scss', 'styles')
     .extract([
         'axios', 'debounce', 'pdfjs-dist', 'vue', 'vue-router', 'vuetify', 'vuex'
     ]);

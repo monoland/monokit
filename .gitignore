@@ -5,6 +5,7 @@
 /storage/*.key
 /storage/framework/laravel-excel
 /storage/document/*.*
+/frontend
 /vendor
 .DS_Store
 .env

@@ -4,8 +4,11 @@
     <v-app v-else>
         <v-main class="light-blue">
             <v-container fill-height fluid>
-                <v-row align-content="center" justify="center">
-                    <span class="copyright light-blue--text text--darken-4">monoland</span>
+                <v-row class="relative" align-content="center" justify="center">
+                    <span class="absolute d-flex align-center justify-center copyright light-blue--text text--darken-4"
+                        style="height: 50px;"
+                    >monoland</span>
+
                     <div id="preloader">
                         <div id="loader"></div>
                     </div>

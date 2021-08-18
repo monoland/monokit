@@ -14,19 +14,30 @@
                 
                 <v-card-text>
                     <v-row no-gutters>
-                        <v-col cols="12">
-                            <v-text-field
-                                label="Name"
-                                v-model="record.name"
-                            ></v-text-field>
+                        <v-col class="d-flex align-center" cols="3">
+                            <mono-view-avatar 
+                                size="108"
+                                v-model="record.profile_avatar_path"
+                            ></mono-view-avatar>
                         </v-col>
 
-                        <v-col cols="12">
-                            <v-text-field
-                                label="Email"
-                                hide-details
-                                v-model="record.email"
-                            ></v-text-field>
+                        <v-col cols="9">
+                            <v-row no-gutters>
+                                <v-col cols="12">
+                                    <v-text-field
+                                        label="Name"
+                                        v-model="record.name"
+                                    ></v-text-field>
+                                </v-col>
+
+                                <v-col cols="12">
+                                    <v-text-field
+                                        label="Email"
+                                        hide-details
+                                        v-model="record.email"
+                                    ></v-text-field>
+                                </v-col>
+                            </v-row>
                         </v-col>
                     </v-row>
                 </v-card-text>

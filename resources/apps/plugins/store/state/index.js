@@ -159,11 +159,7 @@ const state = {
 
     theme: process.env.MIX_PAGE_THEME,
 
-    uploader: null,
-
-    upload: {
-        http: null
-    }
+    uploader: null
 }
 
 export default state;

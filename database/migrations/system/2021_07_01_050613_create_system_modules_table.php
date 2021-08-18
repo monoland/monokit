@@ -22,6 +22,7 @@ class CreateSystemModulesTable extends Migration
             $table->string('color')->default('cyan');
             $table->boolean('visibility')->default(true);
             $table->text('describe')->nullable();
+            $table->nullableMorphs('ownerable');
             $table->nestedSet();
             $table->softDeletes();
             $table->timestamps();

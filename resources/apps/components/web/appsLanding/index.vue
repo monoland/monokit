@@ -1,6 +1,6 @@
 <template>
     <v-app v-cloak>
-        <v-main :class="product_theme">
+        <v-main :class="product_theme" class="lighten-5">
             <v-container fill-height>
                 <v-row>
                     <v-col class="d-flex flex-column justify-center" cols="6">

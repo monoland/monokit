@@ -40,7 +40,7 @@ class AccountBaseController extends Controller
      */
     public function asset($name)
     {
-        $path = public_path('images' . DIRECTORY_SEPARATOR . $name . '.png');
+        $path = public_path('images' . DIRECTORY_SEPARATOR . $name);
 
         return response()->file($path);
     }

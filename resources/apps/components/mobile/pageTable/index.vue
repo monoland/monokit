@@ -33,15 +33,16 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
     computed: {
-        page: function() {
-            return this.$store.state.module.page;
-        },
-
-        records: function() {
-            return this.$store.state.module.records;
-        },
+        ...mapState({
+            page: state => state.module.page,
+            records: state => state.module.records,
+            table: state => state.module.table,
+            theme: state => state.theme,
+        }),
 
         selected: {
             get: function() {
@@ -51,14 +52,6 @@ export default {
             set: function(selected) {
                 this.$store.commit('PAGE_SELECTED', selected);
             }
-        },
-
-        table: function() {
-            return this.$store.state.module.table;
-        },
-
-        theme: function() {
-            return this.$store.state.theme;
         }
     },
 
@@ -69,7 +62,10 @@ export default {
     methods: {
         intersect: function(entries) {
             if (entries[0].isIntersecting) {
-                this.$store.commit('MODULE_RECORDS_NEXT');
+                let nextPage = this.table.current_page + 1 > this.table.last_page ? this.table.last_page : this.table.current_page + 1;
+
+                this.$store.commit('BUILD_REQUEST_PARAMS', { options: { page: nextPage }});
+                this.$store.dispatch('fetch_records', { reset: false });
             }
         }
     }

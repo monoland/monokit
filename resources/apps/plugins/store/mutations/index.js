@@ -29,7 +29,10 @@ const mutations = {
 
         state.http = axios.create({
             baseURL: BASE_URL,
-            withCredentials: true 
+            withCredentials: true,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
         });
 
         if (state.auth.hasKey('mode')) {
@@ -62,7 +65,7 @@ const mutations = {
         state.auth.setItem('modules', payload.modules);
     },
 
-    BUILD_REQUEST_PARAMS: function(state, { mode, search, filters })
+    BUILD_REQUEST_PARAMS: function(state, { mode, search, filters, options })
     {
         if (mode) {
             state.requestParams.mode = mode;
@@ -97,6 +100,16 @@ const mutations = {
                 state.requestParams.filterOn = null;
                 state.requestParams.filterOp = null;
             }
+        }
+
+        state.requestParams.sortBy = null;
+        state.requestParams.sortDesc = null;
+
+        if (options) {
+            state.requestParams.itemsPerPage = options.itemsPerPage ? parseInt(options.itemsPerPage) : process.env.MIX_PAGE_ITEMPERPAGE;
+            state.requestParams.page = options.page;
+            state.requestParams.sortBy = options.sortBy && Array.isArray(options.sortBy) ? options.sortBy[0] : null;
+            state.requestParams.sortDesc = options.sortDesc && Array.isArray(options.sortDesc) ? options.sortDesc[0] : null;
         }
     },
 
@@ -275,13 +288,17 @@ const mutations = {
                 baseURL: state.baseURL + '/' + payload,
                 withCredentials: false,
                 headers: {
-                    Authorization: 'Bearer ' + state.auth.getItem('token')
+                    Authorization: 'Bearer ' + state.auth.getItem('token'),
+                    'X-Requested-With': 'XMLHttpRequest'
                 }
             });
         } else {
             state.http = axios.create({
                 baseURL: state.baseURL + '/' + payload,
-                withCredentials: true 
+                withCredentials: true,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
             });
         }
     },
@@ -300,7 +317,8 @@ const mutations = {
                 baseURL: state.baseURL,
                 withCredentials: false,
                 headers: {
-                    Authorization: 'Bearer ' + state.auth.getItem('token')
+                    Authorization: 'Bearer ' + state.auth.getItem('token'),
+                    'X-Requested-With': 'XMLHttpRequest'
                 }
             });
 
@@ -315,7 +333,10 @@ const mutations = {
         } else {
             state.http = axios.create({
                 baseURL: state.baseURL,
-                withCredentials: true 
+                withCredentials: true,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
             });
 
             state.uploader = axios.create({

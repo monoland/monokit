@@ -7,13 +7,13 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController;
 
 Route::get('/', [AccountBaseController::class, 'index'])->name('login');
-Route::get('/apps-info', [AccountBaseController::class, 'information']);
+Route::get('/apps-info', [AccountBaseController::class, 'information'])->middleware('ajax.only');
 
 Route::prefix('asset')->group(function () {
     Route::get('{slug}', [AccountBaseController::class, 'asset']);
 });
 
-Route::prefix('account')->group(function () {
+Route::middleware('ajax.only')->prefix('account')->group(function () {
     // Authentication
     Route::middleware('guest:web')->group(function () {
         // Authentication

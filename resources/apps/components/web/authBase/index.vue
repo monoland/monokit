@@ -1,6 +1,6 @@
 <template>
     <v-app v-cloak>
-        <v-app-bar color="transparent" dark flat app>
+        <v-app-bar color="transparent" flat app>
             <v-btn icon to="/">
                 <v-icon>arrow_back</v-icon>
             </v-btn>
@@ -14,7 +14,7 @@
             ></v-progress-linear>
         </v-app-bar>
 
-        <v-main :class="product_theme">
+        <v-main :class="product_theme" class="lighten-5">
             <v-container fill-height>
                 <v-row>
                     <v-col class="d-flex flex-column justify-center" cols="6">

@@ -17,6 +17,7 @@
         :show-select="page.nested"
         v-model="selected"
         @click:row="rowClick"
+        @update:options="updateOptions"
     >
         <template #progress>
             <v-progress-linear :color="theme" height="1" indeterminate></v-progress-linear>
@@ -109,6 +110,13 @@ export default {
     methods: {
         rowClick: function(item, { select, isSelected }) {
             select(!isSelected);
+        },
+
+        updateOptions: function(options) {
+            if (this.page.initialized) {
+                this.$store.commit('BUILD_REQUEST_PARAMS', { options: options });
+                this.$store.dispatch('fetch_records', { reset: true });
+            }
         }
     }
 };

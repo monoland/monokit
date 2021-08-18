@@ -25,7 +25,7 @@ class ProfileResource extends JsonResource
             'password' => null,
             'password_confirmation' => null,
             'devices' => $this->fetchUserDevices($request),
-            'profile_avatar_path' => 'https://monokit.test/account/api/document/preview/f9eafe1495a90c3a8f6301e7fb57e2fda93529e56ed1607a12b399471ed2a5cc.pdf', // $this->profile_avatar_path,
+            'profile_avatar_path' => $this->profile_avatar_path,
             'sessions' => $this->fetchUserSessions($request),
             'two_factor_enable' => $this->enabledTwoFactor(),
             'two_factor_qrcode' => $this->enabledTwoFactor() ? $this->twoFactorQrCodeSvg() : null,
